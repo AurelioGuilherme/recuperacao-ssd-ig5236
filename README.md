@@ -142,7 +142,7 @@ recuperacao-ssd-ig5236/
 
 ```bash
 # 0) clonar este repositório
-git clone <URL-DESTE-REPOSITORIO> recuperacao-ssd-ig5236
+git clone https://github.com/AurelioGuilherme/recuperacao-ssd-ig5236 recuperacao-ssd-ig5236
 cd recuperacao-ssd-ig5236
 chmod +x scripts/linux/*.sh
 

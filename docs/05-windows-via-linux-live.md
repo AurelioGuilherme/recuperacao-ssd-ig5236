@@ -37,7 +37,7 @@ No Live, **não abra os discos internos no gerenciador de arquivos** (isso os mo
    ```
 3. Baixe este repositório e entre nele:
    ```bash
-   git clone <URL-DESTE-REPOSITORIO> recuperacao-ssd-ig5236
+   git clone https://github.com/AurelioGuilherme/recuperacao-ssd-ig5236 recuperacao-ssd-ig5236
    cd recuperacao-ssd-ig5236
    chmod +x scripts/linux/*.sh
    ```

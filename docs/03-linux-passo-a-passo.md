@@ -27,7 +27,7 @@ Todos os comandos abaixo são rodados **na raiz do repositório**. Cada passo te
 ## Passo 1 — Obter este repositório
 
 ```bash
-git clone <URL-DESTE-REPOSITORIO> recuperacao-ssd-ig5236
+git clone https://github.com/AurelioGuilherme/recuperacao-ssd-ig5236 recuperacao-ssd-ig5236
 cd recuperacao-ssd-ig5236
 chmod +x scripts/linux/*.sh
 ```
