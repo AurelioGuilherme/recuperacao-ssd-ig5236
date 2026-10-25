@@ -1,0 +1,67 @@
+# Saida real (resumida: as linhas de chunk foram cortadas) do 06-run.sh que funcionou.
+# Versao do script: a mesma logica de tools/guided_flash.py.
+================================================================
+ETAPAS 1 e 2 (SEM PAUSA ENTRE ELAS): ToRecovery (0xF7), GRAVAR loader.fw e depois
+GRAVAR programmer+cust+3SJ11+ymtcx2.fw (pacote para NAND YMTC).
+...
+Para continuar, digite exatamente GRAVAR LOADER E PROGRAMMER (Enter aborta): GRAVAR LOADER E PROGRAMMER
+  opcode 0xf7 -> status 0x0000 dw0=0x00000000
+ToRecovery: 0
+== flash loader.fw: 20480 bytes (5 pages)
+    chunk #0 @0x0/20480 ok (0%)
+    ... (chunks 1 a 3) ...
+    chunk #4 @0x4000/20480 ok (80%)
+    download complete: 20480 bytes in 0.04s
+  FW Commit (0x10) cdw10=0x19
+  opcode 0x10 -> status 0x0000 dw0=0x00000000
+
+[pos-loader] SEM mexer no CC: um unico Identify, esperando ate 150 s pela resposta...
+[pos-loader] CAP=0x00000020640100ff VS=0x00010200 CC=0x00460001 CSTS=0x00000001
+[pos-loader] Identify sem tocar no CC -> status=0 apos 80.2s | CAP=0x00000020640100ff VS=0x00010200 CC=0x00460001 CSTS=0x00000001
+[pos-loader] SN='SSD-5236' MN='MN-5236' FR='2.0.0.3'
+
+ETAPA 2 (sem pausa; ja confirmada no inicio): gravando programmer+cust+3SJ11+ymtcx2.fw
+== flash programmer+cust+3SJ11+ymtcx2.fw: 626688 bytes (153 pages)
+    chunk #0 @0x0/626688 ok (0%)
+    ... (chunks 1 a 151) ...
+    chunk #152 @0x98000/626688 ok (99%)
+    download complete: 626688 bytes in 1.16s
+  FW Commit (0x10) cdw10=0x19
+  opcode 0x10 -> status 0x0000 dw0=0x00000000
+[pos-programmer] Identify sem tocar no CC -> status=0 apos 12.6s | CAP=0x00000020640100ff VS=0x00010200 CC=0x00460001 CSTS=0x00000001
+[pos-programmer] SN='SSD-DRAM-120216-V' MN='INNOGRIT' FR='3.S.J.11'
+  opcode 0xe4 -> status 0x0000 dw0=0x00000000
+DDR eye: 0
+[pos_programmer] mpinfo salvo em .../mpinfo_pos_programmer.bin | bytes nao-zero: 284/4096
+  primeiros 64 bytes: 494e4d5701122020000000007a730000001000006e00000000000000524e30303133323900000000000000000000000053534420325442000000000000000000
+  entrada 01: 9bc529492000  fabricante: YMTC
+  entrada 03: 9bc529492000  fabricante: YMTC
+  ... (entradas 09 a 57, todas iguais) ...
+  entrada 59: 9bc529492000  fabricante: YMTC
+
+================================================================
+ETAPA 3 (SEM VOLTA): BrandNew + RemoveCheck, gravar rdisk, CONF, commit 0x19,
+SmartClean e BrandNew final. Todos os dados antigos serao perdidos.
+Confira acima o fabricante da NAND (0x9B = YMTC) antes de continuar.
+Digite exatamente APAGAR E GRAVAR RDISK e Enter (Enter vazio aborta). Keepalive ativo.
+APAGAR E GRAVAR RDISK
+  opcode 0xe4 -> status 0x0000 dw0=0x00000000
+BrandNew: 0
+  opcode 0xe4 -> status 0x0000 dw0=0x00000000
+RemoveCheck: 0
+  [rdisk] chunk #0 ok
+  [rdisk] chunk #64 ok
+  [rdisk] chunk #128 ok
+  [rdisk] chunk #192 ok
+  [rdisk] download ok (888832 bytes)
+  SetFWconfig (0xE5) crc32=0xbded00a7 send=0x4212ff58
+  opcode 0xe5 -> status 0x0000 dw0=0x00000000
+CONF 0xE5: 0
+  opcode 0x10 -> status 0x0000 dw0=0x00000000
+commit 0x19 -> 0
+[pos-rdisk] ... identidade ainda do programmer (esperado antes do corte de energia)
+SmartClean: 0
+BrandNew: 0
+IDENT FINAL: ('SSD-DRAM-120216-V', 'INNOGRIT', '3.S.J.11')
+
+FIM. AGORA: desligue o PC e corte a energia (chave da fonte) por ~30 s. Reiniciar NAO basta.

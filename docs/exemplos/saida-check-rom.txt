@@ -1,0 +1,10 @@
+# Saida real do 05-check.sh num Netac NV7000 2 TB em ROM mode (nada e gravado neste passo)
+OK            loader.fw
+OK            programmer+cust+3SJ11+ymtcx2.fw
+OK            rdisk+cust+3SJ11+512b+hcrc+semi+l0ps+iecc+semiswitch+logerr+rel+mstripe+raid+a1perf_raid+ymtcx2-cmfg.fw
+estado inicial: CAP=0x00000020640100ff VS=0x00010200 CC=0x00000000 CSTS=0x00000000
+[inicio] enable -> ready CSTS=0x00000001 em 0.5s
+  opcode 0x06 -> status 0x0000 dw0=0x00000000
+[inicio] SN='SSD-5236' MN='MN-5236' FR='2.0.0.3'
+
+Modo check: nada foi gravado. ROM mode: True

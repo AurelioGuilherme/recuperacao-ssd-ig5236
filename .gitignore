@@ -1,0 +1,17 @@
+# Firmware de terceiros: nao distribuir
+firmware/m2_0536/*
+!firmware/m2_0536/.gitkeep
+*.fw
+*.rar
+*.7z
+*.exe
+
+# Codigo de terceiros baixado pelo script 01
+vendor/*
+!vendor/.gitkeep
+
+# Logs e dumps gerados na sua maquina
+logs/*
+!logs/.gitkeep
+*.bin
+__pycache__/

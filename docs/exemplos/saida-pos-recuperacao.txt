@@ -1,0 +1,19 @@
+# Saida real depois do corte total de energia (07-verificar-pos-power-cycle.sh)
+lspci:      01:00.0 Non-Volatile memory controller [0108]: INNOGRIT Corporation NVMe SSD Controller IG5236 [1dbe:5236] (rev 01)
+nvme list:  /dev/nvme0n1   SSD-DRAM-120216-F   INNOGRIT   0x1   2.00 TB / 2.00 TB   512 B + 0 B   3.S.J.11
+lsblk:      nvme0n1   259:0   0   1,8T   0 disk
+dmesg:      nvme nvme0: 32/0/0 default/read/poll queues
+            nvme nvme0: Ignoring bogus Namespace Identifiers
+
+SMART (logo depois):
+  critical_warning : 0
+  temperature      : 42 C (parado, sem dissipador)
+  available_spare  : 100%
+  percentage_used  : 4%
+  media_errors     : 0
+  num_err_log_entries : 0
+  unsafe_shutdowns : 1      (o corte de energia do procedimento)
+
+F3 (rapido, ~100 GB):  Data OK: 100.00 GB | Data LOST: 0.00 Byte | media de leitura 1.57 GB/s
+F3 (completo, ext4):   Data OK: 1.70 TB   | Data LOST: 0.00 Byte | media de leitura 1.26 GB/s
+SMART depois do F3 completo: critical_warning 0 | media_errors 0 | num_err_log_entries 0 | percentage_used 4% | temperature 58 C (sem dissipador)

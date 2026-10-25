@@ -1,0 +1,25 @@
+{
+  "nome": "InnoGrit IG5236 MPutility v1.0.0.103 [YMTC_TAS-3.S.J.11] (netac_3.S.J.11_external.rar)",
+  "nand": "YMTC",
+  "pasta": "m2_0536",
+  "arquivo_original": {
+    "nome": "netac_3.S.J.11_external.rar",
+    "tamanho_bytes": 51530689,
+    "sha256_da_copia_testada": "fc0f74f46aba91874b574f9c42d8abb7bf9c19d039e68a74a015df85d1d71b3c"
+  },
+  "loader": {
+    "arquivo": "loader.fw",
+    "tamanho_bytes": 20480,
+    "sha256": "94fde6004d6ba0b0b2d149731735b5385ee919e93a39cac14a1cf8c333bea695"
+  },
+  "programmer": {
+    "arquivo": "programmer+cust+3SJ11+ymtcx2.fw",
+    "tamanho_bytes": 626688,
+    "sha256": "1946eb385805a482d4cc88e1380a952b20a2e0bd9dd7e0825a82add5f8f93894"
+  },
+  "rdisk": {
+    "arquivo": "rdisk+cust+3SJ11+512b+hcrc+semi+l0ps+iecc+semiswitch+logerr+rel+mstripe+raid+a1perf_raid+ymtcx2-cmfg.fw",
+    "tamanho_bytes": 888832,
+    "sha256": "8994bf34259911cf780548a896b91bc66d9a2fd3c6740fd4693b085e5d910567"
+  }
+}
